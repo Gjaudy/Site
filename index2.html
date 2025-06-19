@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+  <link rel="stylesheet" href="style2.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <video class="header-smoke" src="img\smoke3.mp4" autoplay muted loop></video>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand " href="#">
+        <img class="logo" src='img/logo.png' alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link m-3" href="#about">О нас</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link m-3" href="#price">Цены</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link m-3" href="#graduate">Примеры</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link m-3" href="#education">Обучение</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link m-3" href="#education">Студии</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <script>
+    window.onscroll = function showNavbar() {
+
+      var navbar = document.querySelector('.navbar');
+
+      if (window.pageYOffset > 200) {
+        navbar.classList.add('navbar-fixed');
+      } else {
+        navbar.classList.remove('navbar-fixed');
+      }
+    }
+  </script>
+  <section class="main-info element-animation">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-sm-12" style="text-align: center;">
+
+          <div class="header-down">
+            <div class="header-title">
+              Обучение по
+            </div>
+            <div class="header-down-title">
+              Cозданию битов
+            </div>
+            <div class="header-subtitle">
+              Научитесь создавать профессиональные биты с помощью
+            </div>
+            <div class="header-down-subtitle">
+              нашего интерактивного курса
+            </div>
+            <button class="button">
+              Заказать сейчас
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart2"
+                viewBox="0 0 16 16">
+                <path
+                  d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+
+        <script type="importmap">
+                {
+                    "imports": {
+                        "three": "https://unpkg.com/three@0.139.0/build/three.module.js",
+                        "GLTFLoader": "https://unpkg.com/three@0.139.0/examples/jsm/loaders/GLTFLoader.js",
+                        "RectAreaLightHelper": "https://unpkg.com/three@0.139.0/examples/jsm/helpers/RectAreaLightHelper.js",
+                        "RectAreaLightUniformsLib": "https://unpkg.com/three@0.139.0/examples/jsm/lights/RectAreaLightUniformsLib.js"
+                    }
+                }
+            </script>
+
+        <script class="g" type="module">
+
+          import * as THREE from 'three';
+          import { GLTFLoader } from 'GLTFLoader';
+          import { RectAreaLightHelper } from 'RectAreaLightHelper'
+          import { RectAreaLightUniformsLib } from 'RectAreaLightUniformsLib';
+          let autoRotate = true;
+          let scene = new THREE.Scene();
+
+          const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 3000);
+          camera.position.set(0, 1.5, 2.5)
+
+          let renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+          renderer.setClearColor(0x000000, 0);
+          renderer.setSize(1280, 720);
+
+          renderer.domElement.setAttribute("id", "Deadmous5");
+
+          document.body.insertBefore(renderer.domElement, document.body.firstChild);
+
+          const light = new THREE.DirectionalLight(0xffffff, 1)
+          light.position.set(-2, 0, 10)
+          light.lookAt(0, -1, 0)
+          scene.add(light)
+
+          const light2 = new THREE.DirectionalLight(0xffffff, 1)
+          light2.position.set(2, 0, 5)
+          light2.lookAt(0, 1, 0)
+          scene.add(light2)
+
+          RectAreaLightUniformsLib.init();
+          {
+            const rectLight = new THREE.RectAreaLight(0xffffff, 0.7, 700, 100);
+            rectLight.position.set(-10, 0, 0)
+            rectLight.rotation.y = Math.PI + Math.PI / 4;
+            scene.add(rectLight)
+          }
+
+          {
+            const rectLight = new THREE.RectAreaLight(0xffffff, 0.8, 100, 100);
+            rectLight.position.set(10, 0, 0)
+            rectLight.rotation.y = Math.PI - Math.PI / 4;
+            scene.add(rectLight)
+          }
+
+
+          let obj = null;
+          let isMouseDown = false;
+          let mouseX = 0;
+
+          let mixer = null;
+          let targetRotation = 0;
+
+          {
+            const loader = new GLTFLoader();
+            loader.load('./d/scene.gltf', gltf => {
+              gltf.scene.position.set(0, 0, 0);
+              scene.add(gltf.scene);
+              obj = gltf;
+
+              mixer = new THREE.AnimationMixer(gltf.scene);
+              const action = mixer.clipAction(gltf.animations[0]);
+              action.play();
+            },
+              function (error) {
+                console.log('Error: ' + error)
+              })
+          }
+
+          function handleMouseDown(event) {
+            isMouseDown = true;
+            autoRotate = false;
+          }
+
+          function handleMouseUp(event) {
+            isMouseDown = false;
+            autoRotate = true;
+          }
+
+          function handleMouseMove(event) {
+            if (isMouseDown) {
+              mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+            }
+          }
+
+          function animate() {
+            requestAnimationFrame(animate);
+
+            if (obj) {
+              if (autoRotate) {
+                if (!obj.direction || obj.direction === 'forward') {
+                  obj.scene.rotation.y += 0.002;
+                  if (obj.scene.rotation.y >= Math.PI / 4) {
+                    obj.direction = 'reverse';
+                  }
+                } else if (obj.direction === 'reverse') {
+                  obj.scene.rotation.y -= 0.002;
+                  if (obj.scene.rotation.y <= 0) {
+                    obj.direction = 'forward';
+                  }
+                }
+              } else {
+                obj.scene.rotation.y = mouseX * Math.PI;
+              }
+            }
+
+            if (mixer) {
+              mixer.update(0.01);
+            }
+
+            renderer.render(scene, camera);
+          }
+
+          animate();
+
+          window.addEventListener('mousedown', handleMouseDown);
+          window.addEventListener('mousemove', handleMouseMove);
+          window.addEventListener('mouseup', handleMouseUp);
+
+        </script>
+
+      </div>
+    </div>
+
+  </section>
+
+
+
+  <section style="margin-top: 390px;">
+    <div id="about" class="container">
+      <div class="row">
+        <div class="col-lg-5 col-md-12">
+          <div class="about-us-images">
+            <img class="display element-animation" src="img\display.png" alt="">
+          </div>
+        </div>
+        <div class="col-md-7 col-sm-12">
+          <div class="mt-5">
+            <div class="about-us-title element-animation">
+              Изучайте курс и узнавайте всё больше о вашем хобби
+            </div>
+
+
+            <div class="about-us-down-subtitle element-animation">
+              Наш обучающий курс по созданию битов предлагает уникальную возможность <br>освоить все
+              необходимые
+              навыки и техники для создания качественных и <br> захватывающих битов. Мы предлагаем
+              комплексный
+              подход к обучению, <br> который подойдет как для начинающих,так и для более опытных
+              музыкантов.
+            </div>
+
+            <div class="social element-animation">
+              <a href="">
+                <img class="logo-social m-3" src='img\inst.png' alt="" width="50" height="50">
+              </a>
+              <a href="">
+                <img class="logo-social m-3" src='img\youtube.png' alt="" width="50" height="50">
+              </a>
+              <a href="">
+                <img class="logo-social m-3" src='img\skype.png' alt="" width="50" height="50">
+              </a>
+              <a href="">
+                <img class="logo-social m-3" src='img\facebook.png' alt="" width="50" height="50">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="line element-animation">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="price">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 col-sm-12">
+          <div id="money-images">
+            <img class="img-fluid element-animation" src="img\studio.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-lg-7 col-sm-12">
+          <div class="background-money element-animation">
+            <div class="info-money">
+              <div class="block-money">
+                <div class="block-title-money">
+                  <div class="price-title">
+                    Стоимость курса
+                  </div>
+                  <div class="price">
+                    $9.95
+                  </div>
+                  <div class="price-subtitle">
+                    Цена наших курсов приятно удивит вас – мы предлагаем <br>доступное обучение без потери качества.
+                    Весь материал доступен в удобном онлайн формате, что позволит вам изучать его в любое удобное
+                    время.
+                  </div>
+                  <button role="button" class="button-name">
+                    ЗАКАЗАТЬ
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="graduate">
+    <div class="col-12">
+      <div class="graduate element-animation">
+        НАШИ<span class="graduate-title"> ВЫПУСКНИКИ</span>
+      </div>
+    </div>
+
+    <div id="student" class="container">
+      <div class="row">
+        <div class="col-lg-2 col-sm-12">
+          <div class="png-examples">
+            <img class="logo-examples element-animation" src="img/biz1.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-lg-10 col-sm-12">
+
+          <div class="name-examples element-animation">
+            Бохонюк <span class="name-shadow">Жора</span>
+          </div>
+
+          <div class="subtitle-examples element-animation">
+            Талантливый и творческий выпускник курса по созданию битов. <br> Обладающий несравненным
+            чувством ритма и музыкальным слухом, <br> Жора прошел этот интенсивный курс с огромным
+            энтузиазмом и преданностью.
+          </div>
+        </div>
+        <div class="col-12">
+          <audio class="beat-examples element-animation" src="music/jora_beat.mp3" controls>
+          </audio>
+        </div>
+        <div class="col-lg-2 col-sm-12">
+          <div class="png-examples">
+            <img class="logo-examples element-animation" src="img/biz2.jpeg" alt="">
+          </div>
+        </div>
+        <div class="col-lg-10 col-sm-12">
+          <div class="name-examples element-animation">
+            <span class="name-shadow">Кирикович</span> Генадий
+          </div>
+
+          <div class="subtitle-examples element-animation">
+            талантливый и преданный музыкальному искусству выпускник курса по созданию битов.
+            <br>Обладая
+            чувством ритма и глубоким пониманием музыкальной теории, Генадий освоил все<br>
+            необходимые
+            навыки для создания захватывающих и оригинальных ритмических композиций
+          </div>
+        </div>
+        <div class="col-12">
+          <audio class="beat-examples element-animation" src="music/gena_beat.mp3" controls>
+          </audio>
+        </div>
+
+        <div class="col-lg-2 col-sm-12">
+          <div class="png-examples">
+            <img class="logo-examples element-animation" src="img/biz3.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-lg-10 col-sm-12">
+
+          <div class="name-examples element-animation">
+            Савчанчик <span class="name-shadow">Богдан</span>
+          </div>
+
+          <div class="subtitle-examples element-animation">
+            талантливый музыкальный маг, способный придать жизнь нотам. <br>Он - выпускник курса по
+            созданию
+            битов, чье виртуозное владение синтезаторами <br>и компьютерным программным обеспечением
+            превращает звуки в настоящее произведение искусства.
+          </div>
+        </div>
+        <div class="col-12">
+          <audio class="beat-examples element-animation" src="music/bogdan_beat.mp3" controls>
+          </audio>
+        </div>
+        <img class="dj-neon element-animation" src="img\neon-dj.png" alt="">
+      </div>
+    </div>
+  </section>
+<section>
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/e5ced88bb5d43cd0185c90313617f819.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="img/f3a0115c1ae35ac5b462b2c1c560475a.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="img/studio-pictures-a06vjjpn6hzb86z0.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Предыдущий</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Следующий</span>
+  </button>
+</div>
+  </section>
+  <section class="main-info-carousel element-animation">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-sm-12" style="text-align: center;">
+
+          <div class="header-down-carousel">
+            <div class="header-title-carousel">
+              Наши студии звукозаписи
+            </div>
+
+            <div class="header-subtitle-carousel">
+                Каждый клиент работавший с нам оставался доволен
+            </div>
+            <div class="header-down-subtitle-carousel">
+              И вы не будете исключением!
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+  
+  <section id="education">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="title-education element-animation" id="title-education">
+            Как устроено <span class="title-education-color">обучение</span>
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-12 order-sm-1 order-md-1 order-lg-2">
+
+          <img class="tutorial-fl-down element-animation" src="img\fl-studio.jpg" alt="">
+        </div>
+        <div class="col-lg-6 col-sm-12 order-sm-3 order-md-4 order-lg-4">
+
+          <div class="title-tutorial-down  element-animation">
+            Практическая работа
+          </div>
+          <div class="subtitle-tutorial-down  element-animation">
+            Чтобы закрепить полученные знания,<br> вы выполните практические задания: шаг за шагом<br>
+            повторите
+            действия
+            преподавателя и отрисуете<br> макет главного экрана интернет-магазина. <br><br>
+
+            Необязательно делать точную копию — вы можете <br>придумать свой вариант веб-страницы.
+          </div>
+
+        </div>
+
+
+        <div class="col-lg-6 col-sm-12 order-sm-2 order-md-2 order-lg-1">
+
+            <div class="title-tutorial  element-animation">
+              Видеолекции
+            </div>
+            <div class="subtitle-tutorial  element-animation">
+              Мы записали обучающие видео, чтобы<br> вы за короткий срок разобрались в базовых<br>
+              инструментах FL
+              studio
+              и смогли ими пользоваться. <br><br>
+              Теория в занятиях соединена с практикой: эксперт <br> проводит обзор инструментов
+              онлайн-редактора
+              <br>
+              и
+              показывает, как с ними работать.
+
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-12 order-sm-2 order-md-3 order-lg-2">
+
+          <img class="tutorial-fl element-animation" src="img\img-fl.png" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+    <section id="sponsors">
+    <div class="col-12">
+      <div class="graduate element-animation">
+        НАШИ<span class="graduate-title"> спонсоры</span>
+      </div>
+    </div>
+
+    <div id="sponsors" class="container">
+      <div class="row">
+        <div class="col-lg-2 col-sm-12">
+          <div class="png-examples">
+            <img class="logo-examples-sponsors element-animation" src="img/biz1.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-lg-10 col-sm-12">
+
+          <div class="name-examples-sponsors element-animation">
+            Бохонюк <span class="name-shadow">Жора</span>
+          </div>
+
+          <div class="subtitle-examples-sponsors element-animation">
+            Талантливый и творческий выпускник курса по созданию битов. <br> Обладающий несравненным
+            чувством ритма и музыкальным слухом, <br> Жора прошел этот интенсивный курс с огромным
+            энтузиазмом и преданностью.
+          </div>
+        </div>
+        <div class="col-lg-2 col-sm-12">
+          <div class="png-examples">
+            <img class="logo-examples-sponsors element-animation" src="img/biz2.jpeg" alt="">
+          </div>
+        </div>
+        <div class="col-lg-10 col-sm-12">
+          <div class="name-examples-sponsors element-animation">
+            <span class="name-shadow">Кирикович</span> Генадий
+          </div>
+
+          <div class="subtitle-examples-sponsors element-animation">
+            талантливый и преданный музыкальному искусству выпускник курса по созданию битов.
+            <br>Обладая
+            чувством ритма и глубоким пониманием музыкальной теории, Генадий освоил все<br>
+            необходимые
+            навыки для создания захватывающих и оригинальных ритмических композиций
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-sm-12">
+          <div class="png-examples">
+            <img class="logo-examples-sponsors element-animation" src="img/biz3.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-lg-10 col-sm-12">
+
+          <div class="name-examples-sponsors element-animation">
+            Савчанчик <span class="name-shadow">Богдан</span>
+          </div>
+
+          <div class="subtitle-examples-sponsors element-animation">
+            талантливый музыкальный маг, способный придать жизнь нотам. <br>Он - выпускник курса по
+            созданию
+            битов, чье виртуозное владение синтезаторами <br>и компьютерным программным обеспечением
+            превращает звуки в настоящее произведение искусства.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="container-footer">
+      <p class="footer-text"> 2023 Example Company. All rights reserved.</p>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script>
+    function onEntry(entry) {
+      entry.forEach(change => {
+        if (change.isIntersecting) {
+          change.target.classList.add('element-show');
+        }
+      });
+    }
+
+    let options = {
+      threshold: [0.1]
+    };
+    let observer = new IntersectionObserver(onEntry, options);
+    let elements = document.querySelectorAll('.element-animation');
+
+    for (let elm of elements) {
+      observer.observe(elm);
+    }
+  </script>
+</body>
+
+</html>
